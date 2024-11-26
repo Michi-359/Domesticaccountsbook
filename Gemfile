@@ -53,6 +53,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
   gem 'rubocop'
   gem 'rubocop-airbnb'
+  gem 'rspec-rails'
 end
 
 group :development do
