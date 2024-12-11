@@ -50,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: domesticaccountsbook_production
-  username: domesticaccountsbook
-  password: <%= ENV["DOMESTICACCOUNTSBOOK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['JAWSDB_URL'] %>
