@@ -74,5 +74,8 @@ group :test do
 end
 
 gem 'devise'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'dotenv-rails'
