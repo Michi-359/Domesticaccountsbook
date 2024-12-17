@@ -18,7 +18,9 @@
       <a href="/" class="c-header__list-link">ログイン</a>
     </li>
     <li class="c-header__list-item">
-      <a href="/" class="c-header__list-link">ゲストログイン</a>
+      <a class="c-header__list-link">
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { "turbo-method": :post } %>
+      </a>
     </li>
     <li class="c-header__list-item">
       <a href="/" class="c-header__list-link">新規登録</a>

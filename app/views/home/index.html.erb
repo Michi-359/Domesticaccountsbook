@@ -27,7 +27,9 @@
     </div>
     <div class="col-md-6 col-lg-4 bg-success">
       <div class="btn btn-outline-info">
-        <h4>ゲストログイン</h4>
+        <h4>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { "turbo-method": :post } %>
+        </h4>
       </div>
       <p>ゲストの方のためのログイン機能です。</p>
     </div>
@@ -39,3 +41,10 @@
     </div>
   </div>
 </div>
+<footer>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
+    </li>
+  <% end %>
+</footer>
