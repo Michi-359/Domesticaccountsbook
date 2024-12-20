@@ -17,10 +17,7 @@
       </div>
 
       <div class="mb-3 mt-4">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
+        <%= f.label :password %><br><i>(6文字以上)</i><br>
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
@@ -30,9 +27,12 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class:"btn btn-primary w-100" %>
+        <%= f.submit "Sign up", class:"btn btn-primary mb-3 mt-2 w-100" %>
       </div>
-      <%= link_to "Back", :back %>
+
+      <div class="actions">
+        <%= link_to "Back", :back, class:"btn btn-primary mb-3 mt-2 w-100" %>
+      </div>
     <% end %>
     </div>
   </div>

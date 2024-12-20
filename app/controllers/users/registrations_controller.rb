@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.guest?
       flash[:guestout] = "ゲストユーザーはこの操作を行うことができません。"
       redirect_to root_path
-    end 
+    end
   end
 
   protected
