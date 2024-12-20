@@ -9,6 +9,12 @@ class User < ApplicationRecord
       user.name = "ゲストユーザー"
     end
   end
+
+  def guest?
+    self.email == 'guest@example.com'
+  end
+
+  validates :name, presence: true, length: { minimum: 1 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
