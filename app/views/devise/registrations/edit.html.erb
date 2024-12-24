@@ -1,0 +1,59 @@
+<%= render "shared/partial" %>
+<main class="form-signin w-50 m-auto">
+  <div class= "card text-center">
+    <div class="mb-3 mt-4">
+      <h4>アカウント情報編集</h4>
+      <h5>※アカウント削除ボタンは<br>右下にあります。</h5>
+    </div>
+    <div class= "card-body">
+    <% if resource.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <div class="mb-3 mt-4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :password %><i>(6文字以上)</i><br/><i>(変更しない場合は空欄可)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :password_confirmation %> <i>(同上)</i><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :current_password %> <i>(入力必須)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "更新", class:"btn btn-primary mb-3 mt-2 w-100" %>
+      </div>
+
+      <div class="actions">
+        <%= link_to "戻る", :back, class:"btn btn-primary mb-3 mt-2 w-100" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</main>
+<footer class="card text-bg-success">
+  <div class="card-body">
+    <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?（復元はできません）", turbo_confirm: "本当にアカウントを削除しますか?（復元はできません）" }, method: :delete, class: "btn btn-danger" %>
+  </div>
+</footer>

@@ -1,0 +1,48 @@
+<%= render "shared/partial" %>
+<main class="form-signin w-50 m-auto">
+  <div class= "card text-center">
+    <div class="mb-3 mt-4">
+      <h4>新規登録</h4>
+    </div>
+    <div class= "card-body">
+    <% if resource.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= form_with model: @user, url: user_registration_path do |f| %>
+      <div class="mb-3 mt-4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :password %><br><i>(6文字以上)</i><br>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="mb-3 mt-4">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録", class:"btn btn-primary mb-3 mt-2 w-100" %>
+      </div>
+
+      <div class="actions">
+        <%= link_to "戻る", :back, class:"btn btn-primary mb-3 mt-2 w-100" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</main>

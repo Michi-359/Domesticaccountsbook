@@ -54,6 +54,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-airbnb'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -72,3 +73,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'devise'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+gem 'dotenv-rails'

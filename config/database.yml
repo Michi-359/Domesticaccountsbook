@@ -14,7 +14,7 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
 
 development:
@@ -50,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: domesticaccountsbook_production
-  username: domesticaccountsbook
-  password: <%= ENV["DOMESTICACCOUNTSBOOK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['JAWSDB_URL'] %>
