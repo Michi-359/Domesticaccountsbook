@@ -72,7 +72,7 @@ RSpec.describe "Users", type: :model do
       expect(guest_user.email).to eq("guest@example.com")
     end
 
-    it "ゲストユーザーが取得できること" do
+    it "ゲストユーザーである場合にtrueを返すこと" do
       guest_user = User.guest
       expect(guest_user.guest?).to be true
     end
