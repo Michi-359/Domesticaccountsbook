@@ -1,0 +1,126 @@
+<div>
+  <%= render "shared/partial" %>
+  <h3>家計簿一覧</h3>
+  <%= link_to "家計簿の新規登録", new_budgetbook_path %>
+</div>
+<div class= "bg-success">
+  <% @budgetbooks.each do |budgetbook| %>
+  <table class="table table-bordered mb-4">
+    <thead>
+      <tr>
+        <th class="table-primary">年</th>
+        <td><%= budgetbook.year %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary">月</th>
+        <td><%= budgetbook.month %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary">世帯人数</th>
+        <td><%= budgetbook.household_size %></td>
+        <td></td>
+      </tr>
+      <tr>
+      <th class="table-primary">持ち家か賃貸</th>
+        <td><%= budgetbook.housing_type %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary">年収</th>
+        <td><%= budgetbook.annual_income %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary">月収</th>
+        <td><%= budgetbook.monthly_income %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="col">カテゴリー</th>
+        <th class="table-danger" scope="col">支出</th>
+        <th class="table-success" scope="col">支出(全国平均)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="table-primary" scope="row">食費</th>
+        <td><%= budgetbook.food_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">住居費</th>
+        <td><%= budgetbook.housing_expense %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">水道光熱費</th>
+        <td><%= budgetbook.utility_bills %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">家具・家事用品</th>
+        <td><%= budgetbook.furniture_cost %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">被服・履物</th>
+        <td><%= budgetbook.clothing_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">医療費</th>
+        <td><%= budgetbook.medical_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">交通費</th>
+        <td><%= budgetbook.transportation_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">通信費</th>
+        <td><%= budgetbook.communication_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">教育費</th>
+        <td><%= budgetbook.education_cost %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">教養娯楽費</th>
+        <td><%= budgetbook.educational_and_entertainment_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">交際費</th>
+        <td><%= budgetbook.entertainment_expenses %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">貯金</th>
+        <td><%= budgetbook.savings %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">投資</th>
+        <td><%= budgetbook.investments %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">その他</th>
+        <td><%= budgetbook.others %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="table-danger"><%= link_to "編集", [:edit, budgetbook] %></td>
+        <td class="table-danger"><%= budgetbook.year %>年<%= budgetbook.month %>月の家計簿を<%= link_to "削除", 
+        budgetbook, data: { turbo_method: :delete, turbo_confirm: "#{budgetbook.year}年#{budgetbook.month}月の家計簿を本当に削除しますか?(復元はできません)" } %></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+</div>
