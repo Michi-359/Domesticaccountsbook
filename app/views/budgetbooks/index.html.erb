@@ -29,12 +29,12 @@
       </tr>
       <tr>
         <th class="table-primary">年収</th>
-        <td><%= budgetbook.annual_income %></td>
+        <td><%= number_to_currency(budgetbook.annual_income, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
         <th class="table-primary">月収</th>
-        <td><%= budgetbook.monthly_income %></td>
+        <td><%= number_to_currency(budgetbook.monthly_income, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
@@ -46,72 +46,72 @@
     <tbody>
       <tr>
         <th class="table-primary" scope="row">食費</th>
-        <td><%= budgetbook.food_expenses %></td>
-        <td><%= budgetbook.householdsize['Food'] %></td>
+        <td><%= number_to_currency(budgetbook.food_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.householdsize['Food'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">住居費<br>(住宅ローン<br>支払いは除く)</th>
-        <td><%= budgetbook.housing_expense %></td>
-        <td><%= budgetbook.housingtype['House'] %></td>
+        <td><%= number_to_currency(budgetbook.housing_expense, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.housingtype['House'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">水道光熱費</th>
-        <td><%= budgetbook.utility_bills %></td>
-        <td><%= budgetbook.householdsize['Utilities'] %></td>
+        <td><%= number_to_currency(budgetbook.utility_bills, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.householdsize['Utilities'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">家具・家事用品</th>
-        <td><%= budgetbook.furniture_cost %></td>
-        <td><%= budgetbook.average_expenses['Furnitures'] %></td>
+        <td><%= number_to_currency(budgetbook.furniture_cost, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.average_expenses['Furnitures'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">被服・履物</th>
-        <td><%= budgetbook.clothing_expenses %></td>
-        <td><%= budgetbook.householdsize['Clothings'] %></td>
+        <td><%= number_to_currency(budgetbook.clothing_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.householdsize['Clothings'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">医療費</th>
-        <td><%= budgetbook.medical_expenses %></td>
-        <td><%= budgetbook.average_expenses['Medical'] %></td>
+        <td><%= number_to_currency(budgetbook.medical_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.average_expenses['Medical'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">交通費</th>
-        <td><%= budgetbook.transportation_expenses %></td>
-        <td><%= budgetbook.average_expenses['Transportation'] %></td>
+        <td><%= number_to_currency(budgetbook.transportation_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.average_expenses['Transportation'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">通信費</th>
-        <td><%= budgetbook.communication_expenses %></td>
-        <td><%= budgetbook.householdsize['Communication'] %></td>
+        <td><%= number_to_currency(budgetbook.communication_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.householdsize['Communication'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">教育費</th>
-        <td><%= budgetbook.education_cost %></td>
-        <td><%= budgetbook.householdsize['Education'] %></td>
+        <td><%= number_to_currency(budgetbook.education_cost, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.householdsize['Education'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">教養娯楽費</th>
-        <td><%= budgetbook.educational_and_entertainment_expenses %></td>
-        <td><%= budgetbook.average_expenses['Educational_And_Entertainment'] %></td>
+        <td><%= number_to_currency(budgetbook.educational_and_entertainment_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.average_expenses['Educational_And_Entertainment'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">交際費</th>
-        <td><%= budgetbook.entertainment_expenses %></td>
-        <td><%= budgetbook.average_expenses['Entertainment'] %></td>
+        <td><%= number_to_currency(budgetbook.entertainment_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td><%= number_to_currency(budgetbook.average_expenses['Entertainment'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">貯金</th>
-        <td><%= budgetbook.savings %></td>
+        <td><%= number_to_currency(budgetbook.savings, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">投資</th>
-        <td><%= budgetbook.investments %></td>
+        <td><%= number_to_currency(budgetbook.investments, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
         <th class="table-primary" scope="row">その他</th>
-        <td><%= budgetbook.others %></td>
+        <td><%= number_to_currency(budgetbook.others, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
