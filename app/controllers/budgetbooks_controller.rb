@@ -1,6 +1,6 @@
 class BudgetbooksController < ApplicationController
   def index
-    @budgetbooks = Budgetbook.where(user_id: current_user.id)
+    @budgetbooks = Budgetbook.where(user_id: current_user.id).order(created_at: :desc)
     @user = current_user
   end
 
