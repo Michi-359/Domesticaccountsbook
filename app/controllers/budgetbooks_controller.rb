@@ -24,6 +24,9 @@ class BudgetbooksController < ApplicationController
   def edit
     @budgetbook = Budgetbook.find(params[:id])
     @user = current_user
+    if @budgetbook.user_id != current_user.id
+      redirect_to :budgetbooks, notice: "この操作を行うことができません。"
+    end
   end
 
   def update
@@ -38,8 +41,12 @@ class BudgetbooksController < ApplicationController
 
   def destroy
     @budgetbook = Budgetbook.find(params[:id])
-    @budgetbook.destroy
-    redirect_to :budgetbooks, notice: '家計簿を削除しました。'
+    if @budgetbook.user_id != current_user.id
+      redirect_to :budgetbooks, notice: "この操作を行うことができません。"
+    else
+      @budgetbook.destroy
+      redirect_to :budgetbooks, notice: '家計簿を削除しました。'
+    end
   end
 
   private
