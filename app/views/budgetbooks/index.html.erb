@@ -1,9 +1,7 @@
-<div>
-  <%= render "shared/partial" %>
-  <h3>家計簿一覧</h3>
-  <%= link_to "家計簿の新規登録", new_budgetbook_path %>
-</div>
-<div class= "bg-success">
+<%= render "shared/partial" %>
+<div class= "bg-success-subtle">
+  <h2 class ="text-center">家計簿一覧</h2>
+  <%= link_to "家計簿の新規作成", new_budgetbook_path, class:"btn btn-primary m-2" %>
   <% @budgetbooks.each do |budgetbook| %>
   <table class="table mb-4">
     <thead>
@@ -115,9 +113,9 @@
         <td class="table-dark"></td>
       </tr>
       <tr>
-        <td class="table-danger"><%= link_to "編集", [:edit, budgetbook] %></td>
-        <td class="table-danger"><%= budgetbook.year %>年<%= budgetbook.month %>月の家計簿を<%= link_to "削除", 
-        budgetbook, data: { turbo_method: :delete, turbo_confirm: "#{budgetbook.year}年#{budgetbook.month}月の家計簿を本当に削除しますか?(復元はできません)" } %></td>
+        <td class="table-danger"><%= link_to "編集", [:edit, budgetbook], class: "btn btn-primary" %></td>
+        <td class="table-danger"><%= budgetbook.year %>年<%= budgetbook.month %>月の家計簿を<%= link_to "削除",
+        budgetbook, data: { turbo_method: :delete, turbo_confirm: "#{budgetbook.year}年#{budgetbook.month}月の家計簿を本当に削除しますか?(復元はできません)" }, class: "btn btn-danger" %></td>
         <td class="table-dark"></td>
       </tr>
     </tbody>
