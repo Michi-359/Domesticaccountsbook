@@ -16,7 +16,7 @@
   </tr>
   <tr>
     <th><%= f.label :housing_type ,"住居形態" %></th>
-    <td><%= f.select :housing_type, [['持ち家'], ['賃貸'], ['無回答']] %></td>
+    <td><%= f.select :housing_type, [['持ち家'], ['賃貸住宅(民間)'], ['県営、市営住宅等(公営借家)'], ['社宅、公務員住宅等(給与住宅)'], ['無回答']] %></td>
   </tr>
   <tr>
     <th><%= f.label :annual_income ,"年収" %></th>
@@ -31,7 +31,7 @@
     <td><%= f.text_field :food_expenses %></td>
   </tr>
   <tr>
-    <th><%= f.label :housing_expense ,"住居費" %></th>
+    <th><%= f.label :housing_expense ,"住居費(住宅ローン支払いは除く)" %></th>
     <td><%= f.text_field :housing_expense %></td>
   </tr>
   <tr>
