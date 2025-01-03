@@ -1,4 +1,6 @@
 class BudgetbooksController < ApplicationController
+  before_action :move_to_signed_in
+
   def index
     @budgetbooks = Budgetbook.where(user_id: current_user.id).order(created_at: :desc)
     @user = current_user
@@ -41,6 +43,12 @@ class BudgetbooksController < ApplicationController
   end
 
   private
+
+  def move_to_signed_in
+    unless user_signed_in?
+      redirect_to '/users/sign_in', notice: 'ログインしてください。'
+    end
+  end
 
   def budgetbook_params
     params.require(:budgetbook).permit(:year, :month, :household_size, :housing_type, :annual_income, :monthly_income,
