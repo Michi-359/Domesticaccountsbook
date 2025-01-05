@@ -3,6 +3,7 @@
   <%= form_with model: @budgetbook do |f| %>
   <table class="table">
     <h2 class ="text-center">家計簿の編集</h2>
+    <%= render "shared/budgetbooks/ruleandhint" %>
     <tr>
       <th><%= f.label :year, "年" %></th>
       <td><%= f.select :year, (2020..Date.today.year).to_a.reverse %></td>
@@ -89,4 +90,5 @@
     </tr> 
   </table>
   <% end %>
+  <%= render "shared/budgetbooks/source" %>
 </div>

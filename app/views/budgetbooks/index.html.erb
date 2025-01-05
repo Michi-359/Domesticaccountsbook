@@ -2,6 +2,7 @@
 <div class= "bg-success-subtle">
   <h2 class ="text-center">家計簿一覧</h2>
   <%= link_to "家計簿の新規作成", new_budgetbook_path, class:"btn btn-primary m-2" %>
+  <%= render "shared/budgetbooks/ruleandhint" %>
   <% @budgetbooks.each do |budgetbook| %>
   <table class="table mb-4">
     <thead>
@@ -121,4 +122,5 @@
     </tbody>
   </table>
   <% end %>
+  <%= render "shared/budgetbooks/source" %>
 </div>
