@@ -1,8 +1,8 @@
 <%= render "shared/partial" %>
 <div class= "bg-success-subtle">
   <h2 class ="text-center">家計簿一覧</h2>
-  <%= link_to "家計簿の新規作成", new_budgetbook_path, class:"btn btn-primary m-2" %>
   <%= render "shared/budgetbooks/ruleandhint" %>
+  <%= link_to "家計簿の新規作成", new_budgetbook_path, class:"btn btn-danger m-2" %>
   <% @budgetbooks.each do |budgetbook| %>
   <table class="table mb-4">
     <thead>
@@ -111,6 +111,21 @@
       <tr>
         <th class="table-primary" scope="row">その他</th>
         <td><%= number_to_currency(budgetbook.others, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td class="table-dark"></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">支出の合計</th>
+        <td><%= number_to_currency(budgetbook.total_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+        <td class="table-dark"></td>
+      </tr>
+      <tr>
+      <th class="table-primary" scope="row">貯蓄額</th>
+      <td><%= number_to_currency(budgetbook.savings_and_investments, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
+      <td class="table-dark"></td>
+      </tr>
+      <tr>
+        <th class="table-primary" scope="row">貯蓄率</th>
+        <td><%= budgetbook.savings_rate %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>

@@ -56,7 +56,7 @@ class Budgetbook < ApplicationRecord
   def income_band
     case annual_income
     when nil
-      '不明'
+      '無回答'
     when 0..1749999
       '175万未満'
     when 1750000..2389999
@@ -84,7 +84,7 @@ class Budgetbook < ApplicationRecord
     AVERAGE_EXPENSES[income_band]
   end
   AVERAGE_EXPENSES = {
-    '不明' => {
+    '無回答' => {
       'Furnitures' => 9815,
       'Medical' => 11956,
       'Transportation' => 24794,
@@ -238,4 +238,33 @@ class Budgetbook < ApplicationRecord
       'House' => 20141,
     }.freeze,
   }.freeze
+
+  def total_expenses
+    fields = [
+      :food_expenses, :housing_expense, :utility_bills, :furniture_cost,
+      :clothing_expenses, :medical_expenses, :transportation_expenses,
+      :communication_expenses, :education_cost,
+      :educational_and_entertainment_expenses, :entertainment_expenses,
+      :savings, :investments, :others,
+    ]
+
+    fields.sum { |field| send(field) || 0 }
+  end
+
+  def savings_and_investments
+    fields = [
+      :savings, :investments,
+    ]
+
+    fields.sum { |field| send(field) || 0 }
+  end
+
+  def savings_rate
+    if total_expenses > 0
+      percentage = (savings_and_investments.to_f / total_expenses.to_f) * 100
+      format('%.2f%%', percentage)
+    else
+      "計算不能"
+    end
+  end
 end
