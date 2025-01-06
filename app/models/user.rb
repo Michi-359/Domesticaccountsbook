@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :budgetbooks, :dependent => :destroy
+
   GUEST_USER_EMAIL = "guest@example.com".freeze
 
   def self.guest

@@ -1,0 +1,94 @@
+<%= render "shared/partial" %>
+<div class= "bg-success-subtle">
+  <%= form_with model: @budgetbook do |f| %>
+  <table class="table">
+    <h2 class ="text-center">家計簿の編集</h2>
+    <%= render "shared/budgetbooks/ruleandhint" %>
+    <tr>
+      <th><%= f.label :year, "年" %></th>
+      <td><%= f.select :year, (2020..Date.today.year).to_a.reverse %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :month, "月" %></th>
+      <td><%= f.select :month, (1..12).to_a %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :household_size ,"世帯人数" %></th>
+      <td><%= f.select :household_size, [['1人'], ['2人'], ['3人'],['4人'], ['5人'], ['6人以上'],['無回答']] %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :housing_type ,"住居形態" %></th>
+      <td><%= f.select :housing_type, [['持ち家'], ['賃貸住宅(民間)'], ['県営、市営住宅等(公営借家)'], ['社宅、公務員住宅等(給与住宅)'], ['無回答']] %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :annual_income ,"年収" %></th>
+      <td><%= f.text_field :annual_income %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :monthly_income ,"月収" %></th>
+      <td><%= f.text_field :monthly_income %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :food_expenses ,"食費" %></th>
+      <td><%= f.text_field :food_expenses %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :housing_expense ,"住居費(住宅ローン支払いは除く)" %></th>
+      <td><%= f.text_field :housing_expense %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :utility_bills ,"水道光熱費" %></th>
+      <td><%= f.text_field :utility_bills %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :furniture_cost ,"家具・家事用品費" %></th>
+      <td><%= f.text_field :furniture_cost %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :clothing_expenses ,"被服・履物費" %></th>
+      <td><%= f.text_field :clothing_expenses %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :medical_expenses ,"医療費" %></th>
+      <td><%= f.text_field :medical_expenses %></td>
+    </tr> 
+    <tr>
+      <th><%= f.label :transportation_expenses ,"交通費" %></th>
+      <td><%= f.text_field :transportation_expenses %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :communication_expenses ,"通信費" %></th>
+      <td><%= f.text_field :communication_expenses %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :education_cost ,"教育費" %></th>
+      <td><%= f.text_field :education_cost %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :educational_and_entertainment_expenses ,"教養娯楽費" %></th>
+      <td><%= f.text_field :educational_and_entertainment_expenses %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :entertainment_expenses ,"交際費" %></th>
+      <td><%= f.text_field :entertainment_expenses %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :savings ,"貯金額" %></th>
+      <td><%= f.text_field :savings %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :investments ,"投資額" %></th>
+      <td><%= f.text_field :investments %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :others ,"その他の支出" %></th>
+      <td><%= f.text_field :others %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "更新", class:"btn btn-primary mb-3 mt-2 w-50" %></td>
+      <td><%= link_to "戻る", :back, class:"btn btn-primary mb-3 mt-2 w-50" %></td>
+    </tr> 
+  </table>
+  <% end %>
+  <%= render "shared/budgetbooks/source" %>
+</div>
