@@ -73,7 +73,7 @@ class Budgetbook < ApplicationRecord
       '614万未満'
     when 6140000..7529999
       '753万未満'
-    when 7530000..9569999
+    when 7530000..9559999
       '956万未満'
     else
       '956万以上'
