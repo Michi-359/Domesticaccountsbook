@@ -59,12 +59,12 @@
         <td><%= number_to_currency(budgetbook.householdsize['Utilities'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
-        <th class="table-primary" scope="row">家具・家事用品</th>
+        <th class="table-primary" scope="row">家具・家事用品費</th>
         <td><%= number_to_currency(budgetbook.furniture_cost, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td><%= number_to_currency(budgetbook.average_expenses['Furnitures'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
-        <th class="table-primary" scope="row">被服・履物</th>
+        <th class="table-primary" scope="row">被服・履物費</th>
         <td><%= number_to_currency(budgetbook.clothing_expenses, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td><%= number_to_currency(budgetbook.householdsize['Clothings'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
@@ -99,17 +99,17 @@
         <td><%= number_to_currency(budgetbook.average_expenses['Entertainment'], :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
       </tr>
       <tr>
-        <th class="table-primary" scope="row">貯金</th>
+        <th class="table-primary" scope="row">貯金額</th>
         <td><%= number_to_currency(budgetbook.savings, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
-        <th class="table-primary" scope="row">投資</th>
+        <th class="table-primary" scope="row">投資額</th>
         <td><%= number_to_currency(budgetbook.investments, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
       <tr>
-        <th class="table-primary" scope="row">その他</th>
+        <th class="table-primary" scope="row">その他の支出</th>
         <td><%= number_to_currency(budgetbook.others, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %></td>
         <td class="table-dark"></td>
       </tr>
