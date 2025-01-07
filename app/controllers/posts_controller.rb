@@ -6,6 +6,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def mypost
+    @myposts = Post.where(user_id: current_user.id)
+  end
+
   def show
     @post = Post.find(params[:id])
   end
@@ -33,7 +37,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to :posts, notice: '投稿内容を編集しました'
+      redirect_to mypost_posts_path, notice: '投稿内容を編集しました'
     else
       render :edit, notice: '投稿内容の編集に失敗しました。'
     end
@@ -45,7 +49,7 @@ class PostsController < ApplicationController
       redirect_to :posts, notice: "この操作を行うことができません。"
     else
       @post.destroy
-      redirect_to :posts, notice: "投稿を削除しました。"
+      redirect_to mypost_posts_path, notice: "投稿を削除しました。"
     end
   end
 
