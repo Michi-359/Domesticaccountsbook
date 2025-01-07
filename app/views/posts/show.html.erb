@@ -1,0 +1,12 @@
+<%= render "shared/partial" %>
+<div class= "bg-success-subtle">
+  <h2 class="text-center">投稿内容閲覧</h2>
+  <div class="w-75 m-auto">
+    <div class="card m-3">
+      <div class="card-body">
+      <h5 class="card-title"><%= @post.category %></h5>
+      <p class="card-text"><%= @post.body %></p>
+      <div><%= link_to "戻る", :back, class:"btn btn-primary m-2 w-50" %></div>
+    </div>
+  </div>
+</div>

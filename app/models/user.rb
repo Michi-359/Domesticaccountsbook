@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :budgetbooks, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
 
   GUEST_USER_EMAIL = "guest@example.com".freeze
 

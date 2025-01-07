@@ -1,0 +1,18 @@
+<%= render "shared/partial" %>
+<div class= "bg-success-subtle">
+  <h2 class="text-center">投稿一覧</h2>
+  <%= link_to "新規投稿", new_post_path, class:"btn btn-danger m-2" %>
+  <div class="w-75 m-4">
+    <% @posts.each do |post| %>
+    <div class="card m-3">
+      <div class="card-body">
+        <h5 class="card-title">カテゴリー</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary"><%= post.category %></h6>
+        <p class="card-text"><%= post.body %></p>
+      </div>
+    </div>
+    <td><%= link_to "編集", [:edit, post] %></td>
+    <td><%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?(復元はできません)" } %></td>
+    <% end %>
+  </div>
+</div>
