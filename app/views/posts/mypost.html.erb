@@ -9,6 +9,7 @@
       <div class="card-body">
         <h5 class="card-title">カテゴリー</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary"><%= mypost.category %></h6>
+        <h5 class="card-title">投稿内容</h5>
         <p class="card-text"><%= mypost.body %></p>
         <%= link_to "編集", [:edit, mypost], class:"btn btn-primary m-2" %>
         <%= link_to "削除", mypost, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?(復元はできません)" }, class:"btn btn-danger m-2" %>

@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to :posts, notice: '投稿が追加されました。'
     else
-      render :new, notice: '投稿の追加に失敗しました。'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to mypost_posts_path, notice: '投稿内容を編集しました'
     else
-      render :edit, notice: '投稿内容の編集に失敗しました。'
+      render :edit, status: :unprocessable_entity
     end
   end
 

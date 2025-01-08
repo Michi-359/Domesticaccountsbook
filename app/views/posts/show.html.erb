@@ -4,7 +4,9 @@
   <div class="w-75 m-auto">
     <div class="card m-3">
       <div class="card-body">
-      <h5 class="card-title"><%= @post.category %></h5>
+      <h5 class="card-title">カテゴリー</h5>
+      <h6 class="card-title"><%= @post.category %></h6>
+      <h5 class="card-title">投稿内容</h5>
       <p class="card-text"><%= @post.body %></p>
       <div><%= link_to "戻る", :back, class:"btn btn-primary m-2 w-50" %></div>
     </div>
