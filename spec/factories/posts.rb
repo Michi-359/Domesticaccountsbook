@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    category { "MyString" }
+    category { "食費" }
     body { "MyString" }
   end
 end
