@@ -1,0 +1,45 @@
+<%= render "shared/partial" %>
+<div class= "bg-success-subtle">
+  <h2 class="text-center">目標金額を貯めよう!</h2>
+  <%= link_to "目標の新規作成", new_progress_path, class:"btn btn-danger m-2" %>
+  <div class="card text-bg-primary m-auto">
+    <div class="card-body text-center">
+      <h3 class="card-title text-center">目標貯金額について</h3>
+    </div>
+    <div class="card-body m-auto">
+      <p class="card-title">・今までに貯めた金額、それの目標貯金額に対する割合、<br>目標まであと何円貯める必要があるかを表示できます。</p>
+      <p class="card-title">・目標は複数作成できるため、貯金の目的ごとに目標の<br>達成状況をそれぞれ表示できます。<br>(例：車の購入、教育費、旅費に分け、目標の達成状況をそれぞれ表示)</p>
+      <p class="card-title">・目標達成率に応じて、プログレスバーの青色の割合が<br>変化します。目標を達成すれば黄色に変わります。</p>
+      <p class="card-title">・貯めた月数の設定は手動になっています。お手数ですが、<br>月が変わって新たに貯金した後に、編集ページで設定を<br>お願いします。(他の項目も編集ページで設定できます。)</p>
+    </div>
+  </div>
+  <div class="w-75 m-auto">
+    <% @progresses.each do |progress| %>
+    <div class="card m-3">
+      <div class="card-body">
+        <h3 class="card-title">貯金の目的は<%= progress.purpose_of_saving %></h3>
+        <h5 class="card-title">・毎月貯める金額は<%= number_to_currency(progress.monthly_savings, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
+        <h5 class="card-title">・貯めた月数は<%= progress.months %>か月です。</h5>
+        <h5 class="card-title">・毎月貯める金額の他に追加した金額は<%= number_to_currency(progress.special_reserve, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
+        <h4 class="card-title">目標貯金額は<%= number_to_currency(progress.target_amount, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h4>
+        <h2 class="card-title">目標の達成状況</h2>
+        <% if progress.achieving_purpose? %>
+          <div class="progress m-3" role="progressbar" aria-label="Warning striped example" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" style="width: <%= progress.progress_percentage %>%"></div>
+          </div>
+          <h5 class="card-title">目標金額の<%= number_to_currency(progress.target_amount, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>に到達しました!</h5>
+        <% else %>
+          <div class="progress m-3" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%= progress.progress_percentage %>%"></div>
+          </div>
+          <h5 class="card-title">目標金額の<%= progress.progress_percentage %>%を貯めました。</h5>
+          <h5 class="card-title">今まで貯めた金額は<%= number_to_currency(progress.total_savings, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
+          <h5 class="card-title">目標金額まであと<%= number_to_currency(progress.distance_to_target_amount, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
+        <% end %>
+        <%= link_to "編集", [:edit, progress], class:"btn btn-primary m-2" %>
+        <%= link_to "削除", progress, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?(復元はできません)" }, class:"btn btn-danger m-2" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

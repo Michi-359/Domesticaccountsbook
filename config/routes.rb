@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "users/show" => "users#show"
   root to: 'home#index'
   resources :budgetbooks
+  resources :progresses
   resources :posts do
     collection do
       get :mypost

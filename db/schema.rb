@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_07_041855) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_09_025036) do
   create_table "budgetbooks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "year"
     t.integer "month"
@@ -43,6 +43,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_07_041855) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+  end
+
+  create_table "progresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "monthly_savings"
+    t.integer "months"
+    t.integer "special_reserve"
+    t.integer "target_amount"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "purpose_of_saving"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
