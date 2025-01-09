@@ -36,7 +36,7 @@ RSpec.describe "Progresses", type: :model do
     end
   end
 
-  describe "目標貯金額の達成割合" do
+  describe "目標貯金額の達成割合が100に達しているかどうかの判別" do
     it "目標貯金額の達成割合が100に達しているかどうかを正しく判別できること" do
       expect(progress.achieving_purpose?).to be false
     end

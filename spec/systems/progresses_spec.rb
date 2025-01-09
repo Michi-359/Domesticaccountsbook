@@ -37,8 +37,8 @@ RSpec.describe "Progresses", type: :system do
     end
   end
 
-  describe "投稿の削除" do
-    it "投稿の削除ができること" do
+  describe "目標貯金額の削除" do
+    it "目標貯金額の削除ができること" do
       visit progresses_path
       expect(page).to have_link("削除")
       click_link "削除"
