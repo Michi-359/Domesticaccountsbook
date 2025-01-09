@@ -2,6 +2,7 @@
 <div class= "bg-success-subtle">
   <h2 class="text-center">目標の新規作成</h2>
   <div class="w-75 m-auto">
+    <%= render "shared/progresses/rule" %>
     <%= form_with model: @progress, local: true do |f| %>
     <div class="card text-center m-3">
       <div class="card-body m-4">
