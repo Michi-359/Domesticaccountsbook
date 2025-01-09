@@ -13,7 +13,7 @@ class ProgressesController < ApplicationController
   def create
     @progress = Progress.new(progress_params)
     if @progress.save
-      redirect_to :progresses
+      redirect_to :progresses, notice: "目標貯金額の作成が完了しました。"
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ProgressesController < ApplicationController
   def update
     @progress = Progress.find(params[:id])
     if @progress.update(progress_params)
-      redirect_to :progresses
+      redirect_to :progresses, notice: "目標貯金額の編集が完了しました。"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class ProgressesController < ApplicationController
       redirect_to :progresses, notice: "この操作を行うことができません。"
     else
       @progress.destroy
-      redirect_to :progresses
+      redirect_to :progresses, notice: "目標貯金額を削除しました。"
     end
   end
 
