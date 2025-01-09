@@ -7,7 +7,7 @@
       <h3 class="card-title text-center">目標貯金額について</h3>
     </div>
     <div class="card-body m-auto">
-      <p class="card-title">・毎月貯める金額と貯めた月数、他に追加した金額の合計の<br>目標貯金額に対する割合、目標まであと何円貯める必要が<br>あるかを表示できます。</p>
+      <p class="card-title">・今までに貯めた金額、それの目標貯金額に対する割合、<br>目標まであと何円貯める必要があるかを表示できます。</p>
       <p class="card-title">・目標は複数作成できるため、貯金の目的ごとに目標の<br>達成状況をそれぞれ表示できます。<br>(例：車の購入、教育費、旅費に分け、目標の達成状況をそれぞれ表示)</p>
       <p class="card-title">・目標達成率に応じて、プログレスバーの青色の割合が<br>変化します。目標を達成すれば黄色に変わります。</p>
       <p class="card-title">・貯めた月数の設定は手動になっています。お手数ですが、<br>月が変わって新たに貯金した後に、編集ページで設定を<br>お願いします。(他の項目も編集ページで設定できます。)</p>
@@ -33,6 +33,7 @@
             <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%= progress.progress_percentage %>%"></div>
           </div>
           <h5 class="card-title">目標金額の<%= progress.progress_percentage %>%を貯めました。</h5>
+          <h5 class="card-title">今まで貯めた金額は<%= number_to_currency(progress.total_savings, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
           <h5 class="card-title">目標金額まであと<%= number_to_currency(progress.distance_to_target_amount, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
         <% end %>
         <%= link_to "編集", [:edit, progress], class:"btn btn-primary m-2" %>
