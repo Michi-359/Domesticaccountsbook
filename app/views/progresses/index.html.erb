@@ -6,11 +6,11 @@
     <% @progresses.each do |progress| %>
     <div class="card m-3">
       <div class="card-body">
-        <h3 class="card-title">貯蓄の目的は<%= progress.purpose_of_saving %></h5>
+        <h3 class="card-title">貯金の目的は<%= progress.purpose_of_saving %></h5>
         <h5 class="card-title">・毎月貯める金額は<%= number_to_currency(progress.monthly_savings, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
         <h5 class="card-title">・貯めた月数は<%= progress.months %>か月です。</h5>
         <h5 class="card-title">・毎月貯める金額の他に追加した金額は<%= number_to_currency(progress.special_reserve, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
-        <h3 class="card-title">目標金額は<%= number_to_currency(progress.target_amount, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
+        <h3 class="card-title">目標貯金額は<%= number_to_currency(progress.target_amount, :format => "%u%n", :unit => "￥", strip_insignificant_zeros: true) %>です。</h5>
         <%= link_to "編集", [:edit, progress], class:"btn btn-primary m-2" %>
         <%= link_to "削除", progress, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?(復元はできません)" }, class:"btn btn-danger m-2" %>
       </div>

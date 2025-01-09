@@ -15,7 +15,7 @@ class ProgressesController < ApplicationController
     if @progress.save
       redirect_to :progresses
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,7 +31,7 @@ class ProgressesController < ApplicationController
     if @progress.update(progress_params)
       redirect_to :progresses
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

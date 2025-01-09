@@ -5,7 +5,7 @@
     <%= form_with model: @progress, local: true do |f| %>
     <div class="card text-center m-3">
       <div class="card-body m-4">
-        <div><%= f.label :purpose_of_saving ,"貯蓄の目的" %></div>
+        <div><%= f.label :purpose_of_saving ,"貯金の目的" %></div>
         <div><%= f.text_field :purpose_of_saving %></div>
         <div><%= f.label :monthly_savings ,"毎月貯める金額" %></div>
         <div><%= f.text_field :monthly_savings %></div>
@@ -13,8 +13,29 @@
         <div><%= f.text_field :months %></div>
         <div><%= f.label :special_reserve ,"毎月貯める金額の他に追加した金額" %></div>
         <div><%= f.text_field :special_reserve %></div>
-        <div><%= f.label :target_amount ,"目標金額" %></div>
+        <div><%= f.label :target_amount ,"目標貯金額" %></div>
         <div><%= f.text_field :target_amount %></div>
+        <% if @progress.errors.any? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% @progress.errors[:purpose_of_saving].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              <% @progress.errors[:monthly_savings].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              <% @progress.errors[:months].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              <% @progress.errors[:special_reserve].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              <% @progress.errors[:target_amount].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         <div><%= f.submit "編集完了", class:"btn btn-primary m-2 w-50" %></div>
         <div><%= link_to "戻る", :back, class:"btn btn-primary m-2 w-50" %></div>
       </div>
