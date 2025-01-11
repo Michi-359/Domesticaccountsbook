@@ -1,21 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :model do
+  let(:user) { create(:user) }
+
   describe "ユーザー登録" do
     it "ユーザー登録できること" do
-      user = build(:user)
       expect(user).to be_valid
     end
 
     it "emailが空では登録できないこと" do
-      user = build(:user)
       user.email = ""
       user.valid?
       expect(user.errors.full_messages).to include("メールアドレスを入力してください")
     end
 
     it "同じメールアドレスを登録できないこと" do
-      user = build(:user)
       user1 = create(:user)
       user.email = user1.email
       user.valid?
@@ -23,35 +22,30 @@ RSpec.describe "Users", type: :model do
     end
 
     it "nameが空では登録できないこと" do
-      user = build(:user)
       user.name = ""
       user.valid?
       expect(user.errors.full_messages).to include("ニックネームを入力してください")
     end
 
     it "passwordが空では登録できないこと" do
-      user = build(:user)
       user.password = ""
       user.valid?
       expect(user.errors.full_messages).to include("パスワードを入力してください", "パスワード(確認)とパスワードの入力が一致しません")
     end
 
     it "passwordが文字数5文字以下では登録できないこと" do
-      user = build(:user)
       user.password = "12345"
       user.valid?
       expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
     end
 
     it "password_confirmationが空では登録できないこと" do
-      user = build(:user)
       user.password_confirmation = ""
       user.valid?
       expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
     end
 
     it "passwordとpassword_confirmationが一致しないと登録できないこと" do
-      user = build(:user)
       user.password = "password"
       user.password_confirmation = "password2"
       user.valid?
@@ -59,7 +53,6 @@ RSpec.describe "Users", type: :model do
     end
 
     it "password_confirmationが文字数5文字以下では登録できないこと" do
-      user = build(:user)
       user.password_confirmation = "12345"
       user.valid?
       expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
