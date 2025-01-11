@@ -1,5 +1,5 @@
 class BudgetbooksController < ApplicationController
-  before_action :move_to_signed_in
+  before_action :authenticate_user!
 
   def index
     @budgetbooks = Budgetbook.where(user_id: current_user.id).order(created_at: :desc)

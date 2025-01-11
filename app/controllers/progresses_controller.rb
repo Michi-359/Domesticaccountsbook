@@ -1,5 +1,5 @@
 class ProgressesController < ApplicationController
-  before_action :move_to_signed_in
+  before_action :authenticate_user!
 
   def index
     @progresses = Progress.where(user_id: current_user.id)
