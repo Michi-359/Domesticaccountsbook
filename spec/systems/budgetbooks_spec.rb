@@ -47,11 +47,12 @@ RSpec.describe "Budgetbooks", type: :system do
       select "持ち家", from: "budgetbook_housing_type"
       fill_in "年収", with: "4000000"
       click_button "更新"
-      expect(budgetbook.reload.year).to eq(2025)
-      expect(budgetbook.reload.month).to eq(1)
-      expect(budgetbook.reload.household_size).to eq("2人")
-      expect(budgetbook.reload.housing_type).to eq("持ち家")
-      expect(budgetbook.reload.annual_income).to eq(4000000)
+      budgetbook.reload
+      expect(budgetbook.year).to eq(2025)
+      expect(budgetbook.month).to eq(1)
+      expect(budgetbook.household_size).to eq("2人")
+      expect(budgetbook.housing_type).to eq("持ち家")
+      expect(budgetbook.annual_income).to eq(4000000)
       expect(page).to have_content("家計簿が更新されました。")
     end
   end

@@ -26,7 +26,8 @@ RSpec.describe "Posts", type: :system do
       select "水道光熱費", from: "post_category"
       fill_in "本文", with: "EditString"
       click_button "編集完了"
-      expect(post.reload.category).to eq("水道光熱費")
+      post.reload
+      expect(post.category).to eq("水道光熱費")
       expect(post.body).to eq("EditString")
       expect(page).to have_content("投稿内容を編集しました")
     end
