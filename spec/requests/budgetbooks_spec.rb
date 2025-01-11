@@ -7,7 +7,7 @@ RSpec.describe "Budgetbooks", type: :request do
 
   describe "家計簿一覧" do
     before do
-      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      sign_in user
       get budgetbooks_path
     end
 
