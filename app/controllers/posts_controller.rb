@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :move_to_signed_in
-  before_action :set_user
 
   def index
     @posts = Post.all
@@ -51,10 +50,6 @@ class PostsController < ApplicationController
       @post.destroy
       redirect_to mypost_posts_path, notice: "投稿を削除しました。"
     end
-  end
-
-  def set_user
-    @user = current_user
   end
 
   private

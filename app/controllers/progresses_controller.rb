@@ -1,6 +1,5 @@
 class ProgressesController < ApplicationController
   before_action :move_to_signed_in
-  before_action :set_user
 
   def index
     @progresses = Progress.where(user_id: current_user.id)
@@ -43,10 +42,6 @@ class ProgressesController < ApplicationController
       @progress.destroy
       redirect_to :progresses, notice: "目標貯金額を削除しました。"
     end
-  end
-
-  def set_user
-    @user = current_user
   end
 
   private

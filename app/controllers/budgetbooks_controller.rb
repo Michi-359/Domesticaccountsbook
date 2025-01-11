@@ -3,17 +3,14 @@ class BudgetbooksController < ApplicationController
 
   def index
     @budgetbooks = Budgetbook.where(user_id: current_user.id).order(created_at: :desc)
-    @user = current_user
   end
 
   def new
     @budgetbook = Budgetbook.new
-    @user = current_user
   end
 
   def create
     @budgetbook = Budgetbook.new(budgetbook_params)
-    @user = current_user
     if @budgetbook.save
       redirect_to :budgetbooks, notice: '家計簿が追加されました。'
     else
@@ -23,7 +20,6 @@ class BudgetbooksController < ApplicationController
 
   def edit
     @budgetbook = Budgetbook.find(params[:id])
-    @user = current_user
     if @budgetbook.user_id != current_user.id
       redirect_to :budgetbooks, notice: "この操作を行うことができません。"
     end
@@ -31,7 +27,6 @@ class BudgetbooksController < ApplicationController
 
   def update
     @budgetbook = Budgetbook.find(params[:id])
-    @user = current_user
     if @budgetbook.update(budgetbook_params)
       redirect_to :budgetbooks, notice: '家計簿が更新されました。'
     else
@@ -48,6 +43,8 @@ class BudgetbooksController < ApplicationController
       redirect_to :budgetbooks, notice: '家計簿を削除しました。'
     end
   end
+
+  private
 
   def budgetbook_params
     params.require(:budgetbook).permit(:year, :month, :household_size, :housing_type, :annual_income, :monthly_income,
