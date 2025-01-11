@@ -8,13 +8,13 @@ RSpec.describe "Progresses", type: :model do
     it "目標貯金額が空では登録できないこと" do
       progress.target_amount = ""
       progress.valid?
-      expect(progress.errors[:target_amount]).to include("目標貯金額を入力してください")
+      expect(progress.errors[:target_amount]).to include("目標貯金額を入力してください。")
     end
 
     it "目標貯金額が0では登録できないこと" do
       progress.target_amount = 0
       progress.valid?
-      expect(progress.errors[:target_amount]).to include("目標貯金額は1円以上1億円以下で入力してください")
+      expect(progress.errors[:target_amount]).to include("目標貯金額は1円以上1億円以下で入力してください。")
     end
   end
 

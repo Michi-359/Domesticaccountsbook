@@ -29,7 +29,7 @@ RSpec.describe "Posts", type: :system do
       post.reload
       expect(post.category).to eq("水道光熱費")
       expect(post.body).to eq("EditString")
-      expect(page).to have_content("投稿内容を編集しました")
+      expect(page).to have_content("投稿内容を編集しました。")
     end
   end
 
