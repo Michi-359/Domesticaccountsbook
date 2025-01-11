@@ -30,7 +30,7 @@ class BudgetbooksController < ApplicationController
     if @budgetbook.update(budgetbook_params)
       redirect_to :budgetbooks, notice: '家計簿が更新されました。'
     else
-      render "edit", notice: '家計簿の更新に失敗しました。'
+      render :edit, notice: '家計簿の更新に失敗しました。'
     end
   end
 
