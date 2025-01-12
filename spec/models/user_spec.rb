@@ -27,22 +27,10 @@ RSpec.describe "Users", type: :model do
       expect(user.errors.full_messages).to include("ニックネームを入力してください")
     end
 
-    it "passwordが空では登録できないこと" do
-      user.password = ""
+    it "nameが31文字以上では登録できないこと" do
+      user.name = "1234567890123456789012345678901"
       user.valid?
-      expect(user.errors.full_messages).to include("パスワードを入力してください", "パスワード(確認)とパスワードの入力が一致しません")
-    end
-
-    it "passwordが文字数5文字以下では登録できないこと" do
-      user.password = "12345"
-      user.valid?
-      expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
-    end
-
-    it "password_confirmationが空では登録できないこと" do
-      user.password_confirmation = ""
-      user.valid?
-      expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
+      expect(user.errors.full_messages).to include("ニックネームは30文字以内で入力してください")
     end
 
     it "passwordとpassword_confirmationが一致しないと登録できないこと" do
@@ -52,10 +40,25 @@ RSpec.describe "Users", type: :model do
       expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
     end
 
-    it "password_confirmationが文字数5文字以下では登録できないこと" do
+    it "passwordとpassword_confirmationが空では登録できないこと" do
+      user.password = ""
+      user.password_confirmation = ""
+      user.valid?
+      expect(user.errors.full_messages).to include("パスワードを入力してください")
+    end
+
+    it "passwordとpassword_confirmationが文字数5文字以下では登録できないこと" do
+      user.password = "12345"
       user.password_confirmation = "12345"
       user.valid?
-      expect(user.errors.full_messages).to include("パスワード(確認)とパスワードの入力が一致しません")
+      expect(user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
+    end
+
+    it "passwordとpassword_confirmationが文字数31文字以上では登録できないこと" do
+      user.password = "1234567890123456789012345678901"
+      user.password_confirmation = "1234567890123456789012345678901"
+      user.valid?
+      expect(user.errors.full_messages).to include("パスワードは30文字以内で入力してください")
     end
   end
 
