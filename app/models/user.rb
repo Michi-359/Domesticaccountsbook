@@ -16,7 +16,8 @@ class User < ApplicationRecord
     email == 'guest@example.com'
   end
 
-  validates :name, presence: true, length: { minimum: 1 }
+  validates :name, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :password, length: { maximum: 30 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

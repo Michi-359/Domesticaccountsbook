@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6 col-lg-4 bg-success">
       <%= link_to "家計簿作成", budgetbooks_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>家計簿を作成し、<br>支出ごとに全国平均と比較できます。</p>
+      <p>家計簿を作成し、支出ごとに全国平均と<br>比較できます。あなたが入力した年収や<br>世帯人数に対応した属性別の全国平均を<br>表示します。</p>
     </div>
     <div class="col-md-6 col-lg-4 bg-success">
       <%= link_to "目標金額を貯めよう!", progresses_path, class:"btn btn-primary btn-lg m-2" %>
@@ -11,13 +11,11 @@
     </div>
     <div class="col-md-6 col-lg-4 bg-success">
       <%= link_to "節約のコツ集", posts_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>あなたのとっておきの<br>節約のコツを投稿してみましょう。</p>
+      <p>あなたのとっておきの節約のコツを<br>投稿してみましょう。他のユーザーが<br>投稿したものを見ることもできます。</p>
     </div>
     <div class="col-md-6 col-lg-4 bg-success">
-      <div class="btn btn-outline-info m-2">
-        <h4>お問い合わせ</h4>
-      </div>
-      <p>ご不明な点がございましたら<br>こちらからお問い合わせください。</p>
+      <%= link_to "アカウント設定", users_show_path, class:"btn btn-primary btn-lg m-2" %>
+      <p>ユーザー登録情報(メールアドレス・<br>ニックネーム・パスワード)の閲覧・<br>編集・削除ができます。</p>
     </div>
   </div>
 </div>

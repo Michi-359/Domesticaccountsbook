@@ -1,6 +1,5 @@
 class ProgressesController < ApplicationController
-  before_action :move_to_signed_in
-  before_action :set_user
+  before_action :authenticate_user!
 
   def index
     @progresses = Progress.where(user_id: current_user.id)
@@ -13,7 +12,7 @@ class ProgressesController < ApplicationController
   def create
     @progress = Progress.new(progress_params)
     if @progress.save
-      redirect_to :progresses, notice: "目標貯金額の作成が完了しました。"
+      redirect_to :progresses, notice: '目標貯金額の作成が完了しました。'
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,14 +21,14 @@ class ProgressesController < ApplicationController
   def edit
     @progress = Progress.find(params[:id])
     if @progress.user_id != current_user.id
-      redirect_to :progresses, notice: "この操作を行うことができません。"
+      redirect_to :progresses, notice: 'この操作を行うことができません。'
     end
   end
 
   def update
     @progress = Progress.find(params[:id])
     if @progress.update(progress_params)
-      redirect_to :progresses, notice: "目標貯金額の編集が完了しました。"
+      redirect_to :progresses, notice: '目標貯金額の編集が完了しました。'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,15 +37,11 @@ class ProgressesController < ApplicationController
   def destroy
     @progress = Progress.find(params[:id])
     if @progress.user_id != current_user.id
-      redirect_to :progresses, notice: "この操作を行うことができません。"
+      redirect_to :progresses, notice: 'この操作を行うことができません。'
     else
       @progress.destroy
-      redirect_to :progresses, notice: "目標貯金額を削除しました。"
+      redirect_to :progresses, notice: '目標貯金額を削除しました。'
     end
-  end
-
-  def set_user
-    @user = current_user
   end
 
   private

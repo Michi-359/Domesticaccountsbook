@@ -30,7 +30,8 @@ RSpec.describe "Progresses", type: :system do
       fill_in "貯めた月数", with: "8"
       fill_in "毎月貯める金額の他に追加した金額", with: "10000"
       click_button "編集完了"
-      expect(progress.reload.purpose_of_saving).to eq("旅費に使います")
+      progress.reload
+      expect(progress.purpose_of_saving).to eq("旅費に使います")
       expect(progress.months).to eq(8)
       expect(progress.special_reserve).to eq(10000)
       expect(page).to have_content("目標貯金額の編集が完了しました。")

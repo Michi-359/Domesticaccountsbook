@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  before_action :move_to_signed_in
-  before_action :set_user
+  before_action :authenticate_user!
 
   def index
     @posts = Post.all
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to mypost_posts_path, notice: '投稿内容を編集しました'
+      redirect_to mypost_posts_path, notice: '投稿内容を編集しました。'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -51,10 +50,6 @@ class PostsController < ApplicationController
       @post.destroy
       redirect_to mypost_posts_path, notice: "投稿を削除しました。"
     end
-  end
-
-  def set_user
-    @user = current_user
   end
 
   private
