@@ -1,24 +1,101 @@
-# README
+# 作品
+### herokuURL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://domesticaccountsbook-45bfd8f309b7.herokuapp.com/
 
-Things you may want to cover:
+# アプリについて
 
-* Ruby version
+家計簿を作成して、支出の項目ごとに全国平均との比較ができます。世帯人数、住居形態(持ち家、賃貸など)、年収を入力した場合は、その属性ごとの支出の全国平均を表示することができます。また、目標貯金額を設定して進捗状況を確認する機能、節約のコツを投稿、他人の投稿を閲覧することができる機能もあります。
 
-* System dependencies
+# 技術
+### フロントエンド
+| 使用技術 | 詳細 |
+| --- | --- |
+| HTML/CSS | web開発の基本技術 |
+| Bootstrap | CSSフレームワーク |
 
-* Configuration
+### バックエンド
+| 使用技術 | 詳細 |
+| --- | --- |
+| Ruby 3.2.4 | プログラミング言語 |
+| Rails 7.1.5 | Rubyフレームワーク |
+| MySQL | データベース |
+| Devise | ログイン、ゲストログイン機能の実装 |
+| RuboCop | コードスタイルの一貫性を維持 |
+| Rspec | リクエストスペック・システムスペック・モデルスペックのテストを実行 |
 
-* Database creation
+### インフラ
+| 使用技術 | 詳細 |
+| --- | --- |
+| Heroku | デプロイ先 |
 
-* Database initialization
+# インフラ構成図
+![インフラ構成図 drawio](https://github.com/user-attachments/assets/a3ca6388-8a7d-4c59-85ae-13e9b998490d)
 
-* How to run the test suite
+# ER図
+<img width="1470" alt="スクリーンショット 2025-01-20 2 41 10" src="https://github.com/user-attachments/assets/8e01f69c-ff0a-49f3-aeb2-bb70f74ea670" />
 
-* Services (job queues, cache servers, search engines, etc.)
+# 機能一覧
+| 機能名 | 説明 |
+| --- | --- |
+| ユーザー新規登録・ログイン機能 | Deviseを使用して実装しました。ゲストログイン機能もあります。 |
+| 家計簿の登録機能 | 家計簿を登録できます。 |
+| 目標貯金額と進捗状況の登録機能 | 目標貯金額を設定し、毎月貯める金額などを入力すれば、進捗状況を表示することができます。 |
+| 節約のコツの投稿・閲覧機能 | 節約のコツを投稿することができます。投稿されたものは、全てのユーザーが閲覧できます。(他の機能で作成したものは作成したユーザーのみ閲覧できます。) |
 
-* Deployment instructions
+# 機能紹介
+### トップページ
+・全ての機能に簡単にアクセスすることができます。
+<img width="1470" alt="スクリーンショット 2025-01-20 14 14 27" src="https://github.com/user-attachments/assets/96b22c28-0f5b-44e2-8202-c12263ab0f9b" />
+・ログインの有無でボタンをクリックした際の動作が異なります。ログインしていない場合、ログインページに遷移します。
 
-* ...
+https://github.com/user-attachments/assets/8a25e156-6bfd-4b0a-a778-924afef4c7f1
+
+・ログイン済みの場合は、ボタンに書いてある機能にアクセスします。ヘッダー名にある、ようこそ「ユーザー名」さん、の表示で自分のユーザー名で正しくログインできているかわかるようにしています。
+
+https://github.com/user-attachments/assets/36bfc6ac-ddcf-49da-96b9-774255a3729a
+
+### 家計簿の新規登録
+### ・家計簿を新規登録できます。入力した世帯人数、住居形態、年収に応じた支出の全国平均を表示します。
+・新規登録ページ
+<img width="1470" alt="スクリーンショット 2025-01-20 16 05 56" src="https://github.com/user-attachments/assets/f0e0d549-4271-40c4-98cb-30a80f0e93ab" />
+
+・一覧ページ
+
+<img width="1470" alt="スクリーンショット 2025-01-20 16 06 36" src="https://github.com/user-attachments/assets/64de416a-7fd4-4d08-9a57-718898ca81b6" />
+
+・答えたくない項目がある方もいらっしゃると考えているため、各項目について、空欄でも作成できるようになっております。また、セレクトボックスでは無回答を選択できるようになっています。(年、月は入力必須です)(世帯人数、住居形態、年収を無回答、空欄で作成した場合、支出の平均はこれらの属性を考慮せずに表示されます)
+
+・新規登録ページ
+<img width="1470" alt="スクリーンショット 2025-01-20 16 06 59" src="https://github.com/user-attachments/assets/c6830368-da80-402b-9e0e-a7d6c901d1de" />
+
+・一覧ページ
+
+<img width="1470" alt="スクリーンショット 2025-01-20 16 07 08" src="https://github.com/user-attachments/assets/7e3e0ea5-b943-4b09-8e2a-f096df609203" />
+
+・セレクトボックス
+
+<img width="1470" alt="スクリーンショット 2025-01-20 16 15 17" src="https://github.com/user-attachments/assets/a7bec48b-138b-4f95-a627-96f21628ffcb" />
+
+### 目標貯金額の新規登録
+### ・目標貯金額を新規登録できます。
+・貯金の目的、目標貯金額、毎月貯める金額、貯めた月数、その他に追加で貯めた金額を入力できます。
+<img width="1470" alt="スクリーンショット 2025-01-20 16 32 40" src="https://github.com/user-attachments/assets/80ed7060-4239-44f4-9fbb-e847322ea54b" />
+
+・目標貯金額と今まで貯めた金額から、目標達成の進捗状況をパーセンテージやプログレスバーで表示することができます。達成すると、プログレスバーが黄色に変化します。
+<img width="1470" alt="スクリーンショット 2025-01-20 16 32 56" src="https://github.com/user-attachments/assets/62f5908d-b708-4263-a481-100ae9a4473e" />
+<img width="1470" alt="スクリーンショット 2025-01-20 16 35 26" src="https://github.com/user-attachments/assets/ffba7a06-0eb2-4dd0-ac94-77e9a6b916f5" />
+
+### 節約のコツの新規登録
+### ・節約のコツを新規登録できます。
+・どの支出のカテゴリーかの選択、本文の入力ができます。
+<img width="1470" alt="スクリーンショット 2025-01-20 14 50 35" src="https://github.com/user-attachments/assets/c90f7816-023c-4759-9b84-da414a00010d" />
+
+・自他の全ての投稿を閲覧することができます。
+<img width="1470" alt="スクリーンショット 2025-01-20 14 51 25" src="https://github.com/user-attachments/assets/1267cb03-73b1-4da7-86c9-5bf88b8db70f" />
+
+・自分の投稿は編集・削除ができます。
+<img width="1470" alt="スクリーンショット 2025-01-20 14 50 47" src="https://github.com/user-attachments/assets/d819d191-1cc7-4cd1-8969-abc63b8add7d" />
+
+## 今後の課題
+目標貯金額の設定機能について、毎月の貯金を行なった月数は、毎月手動で更新することが必要ですが、自動でできるようにすること、家計簿や目標貯金額は非公開にしていますが、公開、非公開のいずれも可能にすること、毎月末に家計簿を作成することを薦める通知をメールで送れるようにすることが課題です。
