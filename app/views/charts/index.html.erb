@@ -1,0 +1,12 @@
+<%= render "shared/partial" %>
+<div class= "bg-success-subtle">
+  <h2 class="text-center">家計簿のグラフ</h2>
+  <% @budgetbooks_data.each do |data| %>
+  <div class="card m-3">
+    <div class="card-body">
+      <h3 class="card-title"><%= data[:budgetbook].year %>年 <%= data[:budgetbook].month %>月の家計簿</h3>
+      <%= pie_chart data[:expenses_by_category], donut: true, suffix: "円" %>
+    </div>
+  </div>
+  <% end %>
+</div>
