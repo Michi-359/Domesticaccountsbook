@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Budgetbooks", type: :system do
+RSpec.describe "Budgetbooks", type: :system, js: false do
   let(:user) { create(:user) }
   let!(:budgetbook) { create(:budgetbook, user: user) }
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe "Users", type: :system, js: false do
   let(:user) { create(:user) }
 
   before do
