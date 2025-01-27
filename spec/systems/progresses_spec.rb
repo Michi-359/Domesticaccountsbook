@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Progresses", type: :system do
+RSpec.describe "Progresses", type: :system, js: false do
   let(:user) { create(:user) }
   let!(:progress) { create(:progress, user: user) }
 

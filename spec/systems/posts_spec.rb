@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :system do
+RSpec.describe "Posts", type: :system, js: false do
   let(:user) { create(:user) }
   let!(:post) { create(:post, user: user) }
 
