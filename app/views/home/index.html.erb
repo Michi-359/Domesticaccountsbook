@@ -1,25 +1,25 @@
 <%= render "shared/partial" %>
 <div class="contain bg-success-subtle">
   <div class="row">
-    <div class="col-md-6 col-lg-4 bg-success">
-      <%= link_to "家計簿作成", budgetbooks_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>家計簿を作成し、支出ごとに全国平均と<br>比較できます。あなたが入力した年収や<br>世帯人数に対応した属性別の全国平均を<br>表示します。</p>
+    <div class="card col-md-6 col-lg-4">
+      <%= link_to "家計簿作成", budgetbooks_path, class:"btn btn-info btn-lg m-2" %>
+      <h5 class= "d-flex justify-content-center">家計簿を作成し、支出ごとに<br>全国平均と比較できます。<br>入力した年収や世帯人数に<br>対応した属性別の全国平均を<br>表示します。</h5>
     </div>
-    <div class="col-md-6 col-lg-4 bg-success">
-      <%= link_to "家計簿のグラフ", charts_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>作成した家計簿を円グラフで表示します。</p>
+    <div class="card col-md-6 col-lg-4">
+      <%= link_to "家計簿のグラフ", charts_path, class:"btn btn-info btn-lg  m-2" %>
+      <h5 class= "d-flex justify-content-center">作成した家計簿を円グラフで表示します。</h5>
     </div>
-    <div class="col-md-6 col-lg-4 bg-success">
-      <%= link_to "目標金額を貯めよう!", progresses_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>目標貯金額、貯めた金額、期間等を<br>入力し、目標貯金額の達成状況を<br>表示できます。目標貯金額は複数設定<br>できるため、目的別に管理できます。</p>
+    <div class="card col-md-6 col-lg-4">
+      <%= link_to "目標金額を貯めよう!", progresses_path, class:"btn btn-info btn-lg m-2" %>
+      <h5 class= "d-flex justify-content-center">目標貯金額、貯めた金額、期間等を<br>入力し、目標貯金額の達成状況を<br>表示できます。目標貯金額は複数設定<br>できるため、目的別に管理できます。</h5>
     </div>
-    <div class="col-md-6 col-lg-4 bg-success">
-      <%= link_to "節約のコツ集", posts_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>あなたのとっておきの節約のコツを<br>投稿してみましょう。他のユーザーが<br>投稿したものを見ることもできます。</p>
+    <div class="card col-md-6 col-lg-4">
+      <%= link_to "節約のコツ集", posts_path, class:"btn btn-info btn-lg m-2" %>
+      <h5 class= "d-flex justify-content-center">あなたのとっておきの節約のコツを<br>投稿してみましょう。他のユーザーが<br>投稿したものを見ることもできます。</h5>
     </div>
-    <div class="col-md-6 col-lg-4 bg-success">
-      <%= link_to "アカウント設定", users_show_path, class:"btn btn-primary btn-lg m-2" %>
-      <p>ユーザー登録情報(メールアドレス・<br>ニックネーム・パスワード)の閲覧・<br>編集・削除ができます。</p>
+    <div class="card col-md-6 col-lg-4">
+      <%= link_to "アカウント設定", users_show_path, class:"btn btn-info btn-lg m-2" %>
+      <h5 class= "d-flex justify-content-center">ユーザー登録情報(メールアドレス・<br>ニックネーム・パスワード)の<br>閲覧・編集・削除ができます。</h5>
     </div>
   </div>
 </div>
