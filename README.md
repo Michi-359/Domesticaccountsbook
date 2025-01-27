@@ -46,14 +46,14 @@ https://domesticaccountsbook-45bfd8f309b7.herokuapp.com/
 # 機能紹介
 ### トップページ
 ・全ての機能に簡単にアクセスすることができます。
-<img width="1470" alt="スクリーンショット 2025-01-20 14 14 27" src="https://github.com/user-attachments/assets/96b22c28-0f5b-44e2-8202-c12263ab0f9b" />
+<img width="1470" alt="スクリーンショット 2025-01-28 2 16 16" src="https://github.com/user-attachments/assets/d2e2022a-3597-48b2-9331-d75e9c114445" />
 ・ログインの有無でボタンをクリックした際の動作が異なります。ログインしていない場合、ログインページに遷移します。
 
-https://github.com/user-attachments/assets/8a25e156-6bfd-4b0a-a778-924afef4c7f1
+https://github.com/user-attachments/assets/78042b0f-377d-4d8e-996f-42dbf1e16507
 
-・ログイン済みの場合は、ボタンに書いてある機能にアクセスします。ヘッダー名にある、ようこそ「ユーザー名」さん、の表示で自分のユーザー名で正しくログインできているかわかるようにしています。
+・ログイン済みの場合は、ボタンに書いてある機能にアクセスします。ヘッダーにある、ようこそ「ユーザー名」さん、の表示で自分のユーザー名で正しくログインできているかわかるようにしています。
 
-https://github.com/user-attachments/assets/36bfc6ac-ddcf-49da-96b9-774255a3729a
+https://github.com/user-attachments/assets/fd0f1376-ffce-4f27-bee3-211527bac8fb
 
 ### 家計簿の新規登録
 ### ・家計簿を新規登録できます。入力した世帯人数、住居形態、年収に応じた支出の全国平均を表示します。
