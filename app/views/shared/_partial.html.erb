@@ -5,40 +5,42 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to '家計簿', budgetbooks_path, class: "btn btn-secondary m-1" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "グラフ", charts_path, class: "btn btn-secondary m-1" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '目標貯金額', progresses_path, class: "btn btn-secondary m-1" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '節約のコツ', posts_path, class: "btn btn-secondary m-1" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <span class="nav-link active">ようこそ <%= @user.name %> さん</span>
+            <%= link_to "アカウント設定", users_show_path, class: 'btn btn-primary m-1' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link' %>
+            <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger m-1' %>
           </li>
           <li class="nav-item">
-            <%= link_to "アカウント設定", users_show_path, class: 'nav-link' %>
+            <span class="nav-link active mt-1 mb-1">ようこそ<%= @user.name %> さん</span>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+            <%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary m-1' %>
           </li>
           <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-danger m-1' %>
           </li>
           <li class="nav-item">
-            <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { "turbo-method": :post }, class: 'nav-link' %>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { "turbo-method": :post }, class: 'btn btn-success m-1' %>
           </li>
-        <% end %>
-        <li class="nav-item">
-          <%= link_to '家計簿作成', budgetbooks_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "家計簿のグラフ", charts_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '目標貯金額の設定', progresses_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '節約のコツ集', posts_path, class: 'nav-link' %>
-        </li>
+        <% end %>     
       </ul>
     </div>
   </div>
