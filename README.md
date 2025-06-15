@@ -1,7 +1,8 @@
 # 作品
 ### herokuURL
 
-https://domesticaccountsbook-45bfd8f309b7.herokuapp.com/　(現在は公開停止しました)
+https://domesticaccountsbook-45bfd8f309b7.herokuapp.com/　
+(現在は公開停止しました)
 
 # アプリについて
 
